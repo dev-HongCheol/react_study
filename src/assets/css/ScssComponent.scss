@@ -1,0 +1,29 @@
+@import './utils.scss';
+
+.ScssComponent {
+    display: flex;
+    background: $oc-indigo-3;
+    @include media('>=tablet'){
+        background: $oc-green-4;
+    }
+    .box {
+        background: red;
+        cursor: pointer;
+        transition: all 0.3s ease-in;
+
+        &.red {
+            // .red와 .box가 함꼐 사용할때
+            background: $red;
+            @include square(1)
+        }
+
+        &.orange {
+            background: $orange;
+            @include square(2)
+        }
+
+        &:hover {
+            background: black;
+        }
+    }
+}

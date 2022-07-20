@@ -1,44 +1,45 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import React from 'react'
+import { Route, Routes, BrowserRouter, Link } from 'react-router-dom'
+import Info from './components/213_Info'
+import ScssCompoent from './components/226_ScssCompoent'
+import CssModule from './components/235_CssModule'
+import NewsApp from './Pages/NewsApp'
+import About from './router/About'
+import Home from './router/Home'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function App () {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
+    <>
+      <div className="router">
+
+        <BrowserRouter>
+          <ul>
+            <li>
+              <Link to='/'>홈</Link>
+            </li>
+            <li>
+              <Link to='/about'>소개</Link>
+            </li>
+            <li>
+              <Link to='/new-api'>new-api</Link>
+            </li>
+          </ul>
+
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/new-api" element={<NewsApp />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+
+      <hr />
+      <CssModule />
+      <hr />
+      <ScssCompoent />
+      <hr />
+      <Info />
+    </>
   )
 }
 

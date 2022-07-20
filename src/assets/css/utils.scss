@@ -1,0 +1,11 @@
+@import 'include-media/dist/_include-media';
+@import 'open-color/open-color';
+
+$red: #fa5252;
+$orange: #fd7e14;
+
+@mixin square ($size) {
+    $calculated: 32px * $size;
+    width: $calculated;
+    height: $calculated;
+}
