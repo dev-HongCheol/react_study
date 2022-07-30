@@ -28,7 +28,7 @@ function App () {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/new-api" element={<NewsApp />} />
+            <Route path="/new-api/:category?" element={<NewsApp />} />
           </Routes>
         </BrowserRouter>
       </div>
