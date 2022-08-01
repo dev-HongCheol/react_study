@@ -8,6 +8,7 @@ import CssModule from './components/235_CssModule';
 import NewsApp from './Pages/NewsApp';
 import About from './router/About';
 import Home from './router/Home';
+import ContextApp from './Pages/ContextApp';
 
 function App() {
   return (
@@ -25,22 +26,26 @@ function App() {
             <li>
               <Link to="/new-api">new-api</Link>
             </li>
+            <li>
+              <Link to="/context">context</Link>
+            </li>
           </ul>
 
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/new-api/:category?" element={<NewsApp />} />
+            <Route path="/context" element={<ContextApp />} />
           </Routes>
         </BrowserRouter>
       </div>
 
-      <hr />
+      {/* <hr />
       <CssModule />
       <hr />
       <ScssCompoent />
       <hr />
-      <Info />
+      <Info /> */}
     </>
   );
 }
