@@ -37,4 +37,4 @@ ColorProvider.propTypes = {
 
 const { Consumer: ColorConsumer } = ColorContext;
 
-export { ColorProvider, ColorConsumer };
+export { ColorProvider, ColorConsumer, ColorContext };

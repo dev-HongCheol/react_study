@@ -9,6 +9,7 @@ import NewsApp from './Pages/NewsApp';
 import About from './router/About';
 import Home from './router/Home';
 import ContextApp from './Pages/ContextApp';
+import ReduxApp from './Pages/ReduxApp';
 
 function App() {
   return (
@@ -18,16 +19,19 @@ function App() {
         <BrowserRouter>
           <ul>
             <li>
-              <Link to="/">홈</Link>
+              <Link to="/redux">redux</Link>
             </li>
             <li>
-              <Link to="/about">소개</Link>
+              <Link to="/context">context</Link>
             </li>
             <li>
               <Link to="/new-api">new-api</Link>
             </li>
             <li>
-              <Link to="/context">context</Link>
+              <Link to="/">홈</Link>
+            </li>
+            <li>
+              <Link to="/about">소개</Link>
             </li>
           </ul>
 
@@ -36,6 +40,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/new-api/:category?" element={<NewsApp />} />
             <Route path="/context" element={<ContextApp />} />
+            <Route path="/redux" element={<ReduxApp />} />
           </Routes>
         </BrowserRouter>
       </div>
