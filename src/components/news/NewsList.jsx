@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-import NewsItem from './NewsItem'
+import React from 'react';
+import styled from 'styled-components';
+import NewsItem from './NewsItem';
 
 const NewsListBlock = styled.div`
     box-sizing: border-box;
@@ -13,20 +13,20 @@ const NewsListBlock = styled.div`
         padding-left: 1rem;
         padding-right: 1rem;
     }
-`
+`;
 
 const sampleArticle = {
   title: '제목',
   description: '내용',
   url: 'https://googgl.com',
-  urlToImage: 'https://via.placeholder.com/160'
-}
-export default function NewsList () {
+  urlToImage: 'https://via.placeholder.com/160',
+};
+export default function NewsList() {
   return (
     <div>
-        <NewsListBlock>
-          <NewsItem article={sampleArticle}/>
-        </NewsListBlock>
+      <NewsListBlock>
+        <NewsItem article={sampleArticle} />
+      </NewsListBlock>
     </div>
-  )
+  );
 }

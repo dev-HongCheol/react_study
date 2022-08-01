@@ -1,13 +1,15 @@
-import React from 'react'
-import { Route, Routes, BrowserRouter, Link } from 'react-router-dom'
-import Info from './components/213_Info'
-import ScssCompoent from './components/226_ScssCompoent'
-import CssModule from './components/235_CssModule'
-import NewsApp from './Pages/NewsApp'
-import About from './router/About'
-import Home from './router/Home'
+import React from 'react';
+import {
+  Route, Routes, BrowserRouter, Link,
+} from 'react-router-dom';
+import Info from './components/213_Info';
+import ScssCompoent from './components/226_ScssCompoent';
+import CssModule from './components/235_CssModule';
+import NewsApp from './Pages/NewsApp';
+import About from './router/About';
+import Home from './router/Home';
 
-function App () {
+function App() {
   return (
     <>
       <div className="router">
@@ -15,13 +17,13 @@ function App () {
         <BrowserRouter>
           <ul>
             <li>
-              <Link to='/'>홈</Link>
+              <Link to="/">홈</Link>
             </li>
             <li>
-              <Link to='/about'>소개</Link>
+              <Link to="/about">소개</Link>
             </li>
             <li>
-              <Link to='/new-api'>new-api</Link>
+              <Link to="/new-api">new-api</Link>
             </li>
           </ul>
 
@@ -40,7 +42,7 @@ function App () {
       <hr />
       <Info />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

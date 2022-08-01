@@ -1,5 +1,5 @@
-import { createContext } from 'react'
+import { createContext } from 'react';
 
-const ColorContext = createContext({ color: 'black' })
+const ColorContext = createContext({ color: 'black' });
 
-export default ColorContext
+export default ColorContext;
