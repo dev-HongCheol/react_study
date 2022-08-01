@@ -25,7 +25,7 @@ function App() {
               <Link to="/context">context</Link>
             </li>
             <li>
-              <Link to="/new-api">new-api</Link>
+              <Link to="/new-api/all">new-api</Link>
             </li>
             <li>
               <Link to="/">홈</Link>
@@ -38,7 +38,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/new-api/:category?" element={<NewsApp />} />
+            <Route path="/new-api/:category" element={<NewsApp />} />
             <Route path="/context" element={<ContextApp />} />
             <Route path="/redux" element={<ReduxApp />} />
           </Routes>

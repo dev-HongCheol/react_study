@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-import PropTypes from 'prop-types'
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const NewsItemBlock = styled.div`
     display: flex;
@@ -33,46 +33,48 @@ const NewsItemBlock = styled.div`
     & + &{
         margin-top: 3rem;
     }
-`
+`;
 
-export default function NewsItem ({ article }) {
-  const { title, description, url, urlToImage } = article
+export default function NewsItem({ article }) {
+  const {
+    title, description, url, urlToImage,
+  } = article;
 
   return (
     <NewsItemBlock>
-        {urlToImage && (
-            <div className='thumbnail'>
-                <a href={url} target="_blank" rel="noopener noreferrer">
-                    <img src={urlToImage} alt="thumbnail"/>
-                </a>
-            </div>
-        )}
-        <div className='contents'>
-            <h2>
-                <a href={url} target="_blank" rel="nopener noreferrer">
-                    {title}
-                </a>
-            </h2>
-            <p>{description}</p>
+      {urlToImage && (
+        <div className="thumbnail">
+          <a href={url} target="_blank" rel="noopener noreferrer">
+            <img src={urlToImage} alt="thumbnail" />
+          </a>
         </div>
+      )}
+      <div className="contents">
+        <h2>
+          <a href={url} target="_blank" rel="noreferrer">
+            {title}
+          </a>
+        </h2>
+        <p>{description}</p>
+      </div>
     </NewsItemBlock>
-  )
+  );
 }
 
-NewsItem.defaultProps = {
+NewsItem.defaultProp = {
   article: {
     title: '',
     description: '',
     url: '',
-    urlToImage: ''
-  }
-}
+    urlToImage: '',
+  },
+};
 
 NewsItem.propTypes = {
   article: PropTypes.shape({
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
-    urlToImage: PropTypes.string.isRequired
-  }).isRequired
-}
+    urlToImage: PropTypes.string.isRequired,
+  }).isRequired,
+};

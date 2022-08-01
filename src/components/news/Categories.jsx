@@ -1,29 +1,29 @@
-import React from 'react'
-import styled, { css } from 'styled-components'
-import PropTypes from 'prop-types'
+import React from 'react';
+import styled, { css } from 'styled-components';
+import PropTypes from 'prop-types';
 
 const categories = [
   {
     name: 'all',
-    text: '전체'
+    text: '전체',
   },
   {
     name: 'businss',
-    text: '비지니스'
+    text: '비지니스',
   },
   {
     name: 'entertainment',
-    text: '엔터'
+    text: '엔터',
   },
   {
     name: 'health',
-    text: '전체'
+    text: '전체',
   },
   {
     name: 'science',
-    text: '과학'
-  }
-]
+    text: '과학',
+  },
+];
 
 const CategoriesBlock = styled.div`
     display: flex;
@@ -34,7 +34,7 @@ const CategoriesBlock = styled.div`
         width: 100%;
         overflow-x: auto;
     }
-`
+`;
 
 const Category = styled.div`
     font-size: 1.125rem;
@@ -48,8 +48,7 @@ const Category = styled.div`
         color: #495057;
     }
 
-    ${props =>
-        props.active && css`
+    ${(props) => props.active && css`
             font-weight: 600;
             border-bottom: 2px solid #22b8cf;
             color: #22b8cf;
@@ -57,38 +56,38 @@ const Category = styled.div`
                 color: #3bc8db;
             }
         `
-    }
+}
 
     & + &{
         margin-left: 1rem;
     }
-`
-export default function Categories ({ onSelect, selectCategory }) {
+`;
+export default function Categories({ onSelect, selectCategory }) {
   return (
     <div>
-        <CategoriesBlock>
-            {
-                categories.map(category =>
-                    <Category
-                        active={selectCategory === category.name}
-                        key={category.name}
-                        onClick={() => onSelect(category.name)}
-                    >
-                        {category.text}
-                    </Category>
-                )
+      <CategoriesBlock>
+        {
+                categories.map((category) => (
+                  <Category
+                    active={selectCategory === category.name}
+                    key={category.name}
+                    onClick={() => onSelect(category.name)}
+                  >
+                    {category.text}
+                  </Category>
+                ))
             }
-        </CategoriesBlock>
+      </CategoriesBlock>
     </div>
-  )
+  );
 }
 
 Categories.defaultProps = {
   onSelect: () => {},
-  selectCategory: 'all'
-}
+  selectCategory: 'all',
+};
 
 Categories.propTypes = {
   onSelect: PropTypes.func.isRequired,
-  selectCategory: PropTypes.string.isRequired
-}
+  selectCategory: PropTypes.string.isRequired,
+};
