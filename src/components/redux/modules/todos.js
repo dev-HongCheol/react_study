@@ -3,12 +3,13 @@ const INSERT = 'todos/INSERT';
 const TOGGLE = 'todos/TOGGLE';
 const REMOVE = 'todos/REMOVE';
 
-const chageInput = () => ({
+export const changeInput = (input) => ({
   type: CHANGE_INPUT,
+  input,
 });
 
 let newId = 3;
-const insert = (text) => {
+export const insert = (text) => {
   newId += 1;
   return ({
     type: INSERT,
@@ -19,11 +20,12 @@ const insert = (text) => {
     },
   });
 };
-const toggle = (id) => ({
+export const toggle = (id) => ({
   type: TOGGLE,
   id,
 });
-const remove = (id) => ({
+
+export const remove = (id) => ({
   type: REMOVE,
   id,
 });
@@ -47,6 +49,7 @@ const initialState = {
 function todos(state = initialState, action) {
   switch (action.type) {
     case CHANGE_INPUT:
+      console.log('change', action.input);
       return {
         ...state,
         input: action.input,
@@ -66,7 +69,7 @@ function todos(state = initialState, action) {
     case REMOVE:
       return {
         ...state,
-        todos: todos.filter((todo) => todo.id !== action.id),
+        todos: state.todos.filter((todo) => todo.id !== action.id),
       };
     default:
       return state;

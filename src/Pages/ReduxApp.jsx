@@ -5,6 +5,7 @@ import Counter from '../components/redux/Counter';
 import Todos from '../components/redux/Todos';
 import rootReducer from '../components/redux/modules';
 import CounterContainer from '../components/redux/containers/CounterContainer';
+import TodosContainer from '../components/redux/containers/TodosContainer';
 
 const store = configureStore({
   reducer: rootReducer,
@@ -17,11 +18,10 @@ const store = configureStore({
 function ReduxApp() {
   return (
     <Provider store={store}>
-      <CounterContainer>
-        <Counter number={0} />
-        <hr />
-        <Todos />
-      </CounterContainer>
+      <CounterContainer />
+
+      <hr />
+      <TodosContainer />
     </Provider>
   );
 }

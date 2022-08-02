@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 const categories = [
   {
@@ -36,7 +37,7 @@ const CategoriesBlock = styled.div`
     }
 `;
 
-const Category = styled.div`
+const Category = styled(NavLink)`
     font-size: 1.125rem;
     cursor: pointer;
     white-space: pre;
@@ -48,30 +49,29 @@ const Category = styled.div`
         color: #495057;
     }
 
-    ${(props) => props.active && css`
-            font-weight: 600;
-            border-bottom: 2px solid #22b8cf;
-            color: #22b8cf;
-            &:hover{
-                color: #3bc8db;
-            }
-        `
-}
+    &.active{
+      font-weight: 600;
+      border-bottom: 2px solid #22b8cf;
+      color: #22b8cf;
+      &.hover{
+        color: #3bc9db;
+      }
+    }
 
     & + &{
         margin-left: 1rem;
     }
 `;
-export default function Categories({ onSelect, selectCategory }) {
+export default function Categories() {
   return (
     <div>
       <CategoriesBlock>
         {
                 categories.map((category) => (
                   <Category
-                    active={selectCategory === category.name}
+                    className={(isActive) => (isActive ? 'active' : '')}
                     key={category.name}
-                    onClick={() => onSelect(category.name)}
+                    to={Category.name === 'all' ? '/news-api' : `/news-api/${category.name}`}
                   >
                     {category.text}
                   </Category>
@@ -82,12 +82,12 @@ export default function Categories({ onSelect, selectCategory }) {
   );
 }
 
-Categories.defaultProps = {
-  onSelect: () => {},
-  selectCategory: 'all',
+Categories.defaultProp = {
+  // onSelect: () => {},
+  // selectCategory: 'all',
 };
 
 Categories.propTypes = {
-  onSelect: PropTypes.func.isRequired,
-  selectCategory: PropTypes.string.isRequired,
+  // onSelect: PropTypes.func.isRequired,
+  // selectCategory: PropTypes.string.isRequired,
 };
