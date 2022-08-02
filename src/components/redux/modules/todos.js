@@ -43,3 +43,34 @@ const initialState = {
     },
   ],
 };
+
+function todos(state = initialState, action) {
+  switch (action.type) {
+    case CHANGE_INPUT:
+      return {
+        ...state,
+        input: action.input,
+      };
+    case INSERT:
+      return {
+        ...state,
+        todos: state.todos.concat(action.todo),
+      };
+    case TOGGLE:
+      return {
+        ...state,
+        todos: state.todos.map(
+          (todo) => (todo.id === action.id ? { ...todo, done: !todo.done } : todo),
+        ),
+      };
+    case REMOVE:
+      return {
+        ...state,
+        todos: todos.filter((todo) => todo.id !== action.id),
+      };
+    default:
+      return state;
+  }
+}
+
+export default todos;

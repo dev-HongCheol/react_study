@@ -13,7 +13,7 @@ const initialState = {
   number: 0,
 };
 
-function counter(action, state = initialState) {
+function counter(state = initialState, action) {
   switch (action.type) {
     case INCREASE:
       return {
