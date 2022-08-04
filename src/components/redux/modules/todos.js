@@ -1,4 +1,4 @@
-import { createAction, handleActions } from '@reduxjs/toolkit';
+import { createAction, createReducer } from '@reduxjs/toolkit';
 import produce from 'immer';
 
 const CHANGE_INPUT = 'todos/CHANGE_INPUT';
@@ -35,6 +35,27 @@ export const insert = createAction(INSERT, (text) => ({
 export const toggle = createAction(TOGGLE, (id) => id);
 export const remove = createAction(REMOVE, (id) => id);
 
+const todos = createReducer(initialState, (builder) => {
+  builder
+    .addCase(CHANGE_INPUT, (state, { payload: input }) => {
+      console.log(CHANGE_INPUT);
+      state.input = input;
+    })
+    .addCase(INSERT, (state, { payload: todo }) => {
+      state.todos.push(todo);
+    })
+    .addCase(TOGGLE, (state, { playlod: id }) => {
+      const todo = state.todos.find((_todo) => _todo.id === id);
+      todo.done = !todo.done;
+    })
+    .addCase(REMOVE, (state, { payload: id }) => {
+      const index = state.todos.findIndex((todo) => todo.id === id);
+      state.todos.splice(index, 1);
+    });
+});
+
+/*
+  // rtk는 handleActions가 없다.
 const todos = handleActions(
   {
     [CHANGE_INPUT]: (state, { payload: input }) => (
@@ -61,7 +82,7 @@ const todos = handleActions(
     ),
   },
   initialState,
-);
+); */
 
 /* const todos = handleActions(
   {

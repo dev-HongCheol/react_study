@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Counter({ number, onIncrease, onDecrease }) {
+  console.log('Counter', onIncrease, number);
   return (
     <div>
       <h1>{number}</h1>

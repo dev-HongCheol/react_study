@@ -1,52 +1,57 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Counter from '../Counter';
 import { decrease, increase } from '../modules/counter';
 
-function CounterContainer({ number, increase, decrease }) {
-//   console.log('number', number);
+// function CounterContainer({ number, increase, decrease }) {
+function CounterContainer() {
+  const number = useSelector((state) => state.counter.number);
+  console.log('container', number, increase);
+  const dispatch = useDispatch();
   return (
     <Counter
       number={number}
-      onIncrease={increase}
-      onDecrease={decrease}
+      onIncrease={() => dispatch(increase())}
+      onDecrease={() => dispatch(decrease())}
     />
   );
 }
 
-// const mapStateToProps = (state) => ({
-//   number: state.counter.number,
-// });
+export default CounterContainer;
 
-// const mapDispatchToProps = (dispatch) => ({
-//   increase: () => dispatch(increase()),
-//   decrease: () => dispatch(decrease()),
-// });
+/*
+// 기본. prop으로 state와 함수를 넘긴다.
+const mapStateToProps = (state) => ({
+  number: state.counter.number,
+});
 
-// CounterContainer.propTypes = {
-//   number: PropTypes.number.isRequired,
-//   increase: PropTypes.func.isRequired,
-//   decrease: PropTypes.func.isRequired,
-// };
+const mapDispatchToProps = (dispatch) => ({
+  increase: () => dispatch(increase()),
+  decrease: () => dispatch(decrease()),
+});
 
-// // export default CounterContainer;
-// export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);
+*/
 
-// export default connect(
-//   (state) => ({
-//     number: state.counter.number,
-//   }),
-//   (dispatch) => bindActionCreators(
-//     {
-//       increase,
-//       decrease,
-//     },
-//     dispatch,
-//   ),
-// )(CounterContainer);
+/*
+// map..props를 생성하지 않고 connet + bindActionCreator로 리팩토링.
+export default connect(
+  (state) => ({
+    number: state.counter.number,
+  }),
+  (dispatch) => bindActionCreators(
+    {
+      increase,
+      decrease,
+    },
+    dispatch,
+  ),
+)(CounterContainer); */
 
+/*
+// connect의 DispatchProp을 객체형태로 넘겨 리팩토링
 export default connect(
   (state) => ({
     number: state.counter.number,
@@ -56,3 +61,4 @@ export default connect(
     decrease,
   },
 )(CounterContainer);
+*/
