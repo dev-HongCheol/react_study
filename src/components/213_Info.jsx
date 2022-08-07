@@ -1,5 +1,5 @@
 import React from 'react';
-import userInputs from './213_UserInputs';
+import userInputs from './213_userInputs';
 
 export default function Info() {
   const [state, onChage] = userInputs({
