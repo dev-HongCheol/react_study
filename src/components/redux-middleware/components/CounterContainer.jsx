@@ -1,14 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { increase, decrease } from '../moudle/counter';
+import {
+  increase, decrease, increaseAsync, decreaseAsync,
+} from '../moudle/counter';
 import Counter from './Counter';
 
-function CounterContainer({ number, increase, decrease }) {
+function CounterContainer({ number, increaseAsync, decreaseAsync }) {
   return (
     <div>
       <Counter
-        onIncrease={increase}
-        onDecrease={decrease}
+        onIncrease={increaseAsync}
+        onDecrease={decreaseAsync}
         number={number}
       />
     </div>
@@ -20,7 +22,7 @@ export default connect(
     number: state.counter,
   }),
   {
-    increase,
-    decrease,
+    increaseAsync,
+    decreaseAsync,
   },
 )(CounterContainer);

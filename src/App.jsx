@@ -11,6 +11,7 @@ import Home from './router/Home';
 import ContextApp from './Pages/ContextApp';
 import ReduxApp from './Pages/ReduxApp';
 import ReduxMiddleApp from './Pages/ReduxMiddleApp';
+import LazySuspenseApp from './Pages/LazySuspenseApp';
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
 
         <BrowserRouter>
           <ul>
+            <li>
+              <Link to="/suspense">suspense</Link>
+            </li>
             <li>
               <Link to="/redux-middle">redux-middle</Link>
             </li>
@@ -47,6 +51,7 @@ function App() {
             <Route path="/context" element={<ContextApp />} />
             <Route path="/redux" element={<ReduxApp />} />
             <Route path="/redux-middle" element={<ReduxMiddleApp />} />
+            <Route path="/suspense" element={<LazySuspenseApp />} />
           </Routes>
         </BrowserRouter>
       </div>
